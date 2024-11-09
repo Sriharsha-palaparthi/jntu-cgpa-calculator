@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPA Calculator</title>
+  <style>
+    body {
+      background-color: #000000; /* Black */
+      color: #EE82EE; /* Violet */
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #EE82EE; /* Violet */
+      color: #000000; /* Black */
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #000000; /* Black */
+      color: #EE82EE; /* Violet */
+    }
+
+    #subjectList {
+      list-style: none;
+      padding: 0;
+    }
+
+    #gpaResult {
+      font-weight: bold;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GPA Calculator</h1>
+
+  <form id="gpaForm">
+    <label for="subjectSelect">Select Subject:</label>
+    <select id="subjectSelect">
+      <option value="">-- Select Subject --</option>
+      <option value="math">Math</option>
+      <option value="english">English</option>
+      <option value="science">Science</option>
+      <!-- Add more subjects as needed -->
+    </select>
+
+    <label for="creditInput">Credits:</label>
+    <input type="number" id="creditInput" min="0">
+
+    <label for="scoreInput">Score (out of 10):</label>
+    <input type="number" id="scoreInput" min="0" max="10">
+
+    <button type="button" onclick="addSubject()">Add Subject</button>
+  </form>
+
+  <h2>Subjects and Credits:</h2>
+  <ul id="subjectList"></ul>
+
+  <button type="button" onclick="fetchGPA()">Fetch</button>
+
+  <h2>GPA Calculation:</h2>
+  <div id="gpaResult"></div>
+
+  <script>
+    let subjects = [];
+
+    function addSubject() {
+      const subjectSelect = document.getElementById("subjectSelect");
+      const creditInput = document.getElementById("creditInput");
+      const scoreInput = document.getElementById("scoreInput");
+
+      const selectedSubject = subjectSelect.value;
+      const credits = parseInt(creditInput.value);
+      const score = parseInt(scoreInput.value);
+
+      if (selectedSubject && credits && score) {
+        subjects.push({ subject: selectedSubject, credits: credits, score: score });
+
+        subjectSelect.selectedIndex = 0;
+        creditInput.value = "";
+        scoreInput.value = "";
+
+        displaySubjects();
+      }
+    }
+
+    function displaySubjects() {
+      const subjectList = document.getElementById("subjectList");
+      subjectList.innerHTML = "";
+
+      subjects.forEach(function (subject) {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${subject.subject}: ${subject.credits} credits, Score: ${subject.score}/10`;
+        subjectList.appendChild(listItem);
+      });
+    }
+
+    function fetchGPA() {
+      const totalCredits = subjects.reduce(function (sum, subject) {
+        return sum + subject.credits;
+      }, 0);
+
+      const totalGradePoints = subjects.reduce(function (sum, subject) {
+        return sum + (subject.credits * subject.score);
+      }, 0);
+
+      const gpa = totalGradePoints / totalCredits;
+
+      const gpaResult = document.getElementById("gpaResult");
+     
+      gpaResult.textContent = `GPA: ${gpa.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
