@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* Light gray */
+    color: #333333; /* Dark gray */
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark-mode body {
+    background-color: #333333; /* Dark gray */
+    color: #F5F5F5; /* Light gray */
+  }
+  
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10%;
+    background-color: #FFFFFF; /* White */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #CCCCCC; /* Light gray */
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark-mode .container {
+    background-color: #333333; /* Dark gray */
+    color: #F5F5F5; /* Light gray */
+    border: 1px solid #999999; /* Dark gray */
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333; /* Dark gray */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCCCCC; /* Light gray */
+    border-radius: 4px;
+    background-color: inherit;
+    color: inherit;
+  }
+  
+  .button {
+    display: block;
+    margin: 0 auto;
+    background-color: #EE82EE; /* Violet */
+    color: #FFFFFF; /* White */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #9932CC; /* Dark violet */
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    border-bottom: 1px solid #CCCCCC; /* Light gray */
+    background-color: inherit;
+    color: inherit;
+  }
+  
+  .table th {
+    text-align: left;
+    background-color: #F5F5F5; /* Light gray */
+    color: #333333; /* Dark gray */
+  }
+  
+  .gpa-result {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .fetch-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #EE82EE; /* Violet */
+    transition: color 0.3s ease;
+  }
+  
+  .fetch-button.dark-mode {
+    color: #FFFFFF; /* White */
+  }
+  
+  .dark-mode .header,
+  .dark-mode .form-group label {
+    color: #F5F5F5; /* Light gray */
+  }
+  
+  .dark-mode .form-group input[type="text"],
+  .dark-mode .form-group input[type="number"],
+  .dark-mode .table th,
+  .dark-mode .table td,
+  .dark-mode .gpa-result {
+    background-color: #333333; /* Dark gray */
+  color: #F5F5F5; /* Light gray */
+}
+
+.dark-mode .button {
+  background-color: #9932CC; /* Dark violet */
+}
+
+
+/* Rest of the CSS code */
+
+/* Dark Mode Toggle Button Styles */
+.dark-mode-toggle {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #111111;
+}
+
+.dark-mode-toggle::before {
+  content: "\2600"; /* Sun symbol unicode */
+  color: #FFD700;
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+}
+

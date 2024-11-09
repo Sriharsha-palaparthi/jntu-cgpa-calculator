@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>GPA Calculator</title>
+</head>
+<body>
+ <!-- Rest of the HTML code -->
+ <div class="mode-toggle">
+  <button id="darkModeToggle" class="dark-mode-toggle"> light mode</button>
+</div>
+  <div class="container">
+    <h1>CGPA Calculator</h1>
+    <div class="form-section">
+      <h2>Subjects and Credits:</h2>
+      <label for="subjectSelect">Subject:</label>
+<select id="subjectSelect">
+  <option value="">Select</option>
+  <option value="Math">Math</option>
+  <option value="Science">Science</option>
+  <option value="English">English</option>
+  <option value="other">Other</option>
+</select>
+<input type="text" id="otherSubjectInput" placeholder="Enter Subject" style="display: none;">
+
+      <label for="creditInput">Credit:</label>
+      <input type="number" id="creditInput">
+
+      <label for="scoreInput">Score (out of 10):</label>
+      <input type="number" id="scoreInput">
+
+      <button onclick="addSubject()">Add Subject</button>
+    </div>
+
+    <div class="table-section">
+      <h2>Subjects Table:</h2>
+      <table id="subjectTable">
+        <tr>
+          <th>Subject</th>
+          <th>Credits</th>
+          <th>Score</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="fetch-section">
+      <button onclick="fetchGPA()">Fetch GPA</button>
+      <p id="gpaResult"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
